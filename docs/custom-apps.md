@@ -1,7 +1,7 @@
 ### Clone frappe_docker and switch directory
 
 ```shell
-git clone https://github.com/frappe/frappe_docker
+git clone https://github.com/Grintsys/frappe_docker14.git
 cd frappe_docker
 ```
 
@@ -12,8 +12,8 @@ cd frappe_docker
 ```shell
 export APPS_JSON='[
   {
-    "url": "https://github.com/frappe/erpnext",
-    "branch": "version-15"
+    "url": "https://github.com/Grintsys/erpnext14.git",
+    "branch": "version-14"
   },
   {
     "url": "https://github.com/frappe/payments",
@@ -60,8 +60,8 @@ Customize these optional `--build-arg`s to use a different Frappe Framework repo
 
 ```shell
 docker build \
-  --build-arg=FRAPPE_PATH=https://github.com/frappe/frappe \
-  --build-arg=FRAPPE_BRANCH=version-15 \
+  --build-arg=FRAPPE_PATH=https://github.com/Grintsys/frappe14 \
+  --build-arg=FRAPPE_BRANCH=version-14 \
   --build-arg=PYTHON_VERSION=3.11.9 \
   --build-arg=NODE_VERSION=18.20.2 \
   --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 \
@@ -93,7 +93,7 @@ podman run --rm -it \
   -v "$HOME"/.docker/config.json:/kaniko/.docker/config.json \
   gcr.io/kaniko-project/executor:latest \
   --dockerfile=images/custom/Containerfile \
-  --context=git://github.com/frappe/frappe_docker \
+  --context=git://github.com/Grintsys/frappe_docker14.git \
   --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 \
   --cache=true \
   --destination=ghcr.io/user/repo/custom:1.0.0 \
